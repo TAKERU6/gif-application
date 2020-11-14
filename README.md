@@ -1,1 +1,1 @@
-# GIPHY-Practice
+# gif-application
