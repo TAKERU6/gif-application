@@ -3,7 +3,14 @@ import { connect } from "react-redux";
 
 class Gifs extends Component {
   render() {
-    return <div></div>;
+    const { gifs } = this.props;
+    return (
+      <div>
+        {Object.values(gifs).map((url) => (
+          <img src={url}></img>
+        ))}
+      </div>
+    );
   }
 }
 
