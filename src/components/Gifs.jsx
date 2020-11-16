@@ -1,12 +1,15 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React from "react";
 
-class Gifs extends Component {
-  render() {
-    return <div></div>;
-  }
-}
+const Gifs = ({ gifs }) => {
+  return (
+    <div>
+      {gifs.map((url) => (
+        <li key={url}>
+          <img src={url}></img>
+        </li>
+      ))}
+    </div>
+  );
+};
 
-const mapStateToProps = (state) => ({ gifs: state.gifs });
-
-export default connect(mapStateToProps)(Gifs);
+export default Gifs;

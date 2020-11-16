@@ -1,21 +1,33 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 
 class Form extends Component {
+  state = { word: "" };
+
   render() {
     return (
-      <form action="">
-        <input type="text" />
+      <form
+        onSubmit={(e) => {
+          this.onSubmit(e);
+        }}
+      >
+        <input
+          type="text"
+          value={this.state.word}
+          onChange={this.handleChange}
+        />
         <input type="submit" value="search" />
       </form>
     );
   }
+
+  handleChange = (event) => this.setState({ word: event.target.value });
+
+  onSubmit = (e) => {
+    const { getUrls } = this.props;
+    e.preventDefault();
+    getUrls(this.state.word);
+    this.setState({ text: "" });
+  };
 }
 
-const mapStateToProps = (state) => ({ gifs: state.gifs });
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onSubmit: () => dispatch(),
-  };
-};
-export default connect(mapStateToProps, mapDispatchToProps)(Form);
+export default Form;
