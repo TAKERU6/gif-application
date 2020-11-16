@@ -1,6 +1,6 @@
 import React from "react";
-import Form from "./Form";
-import Gifs from "./Gifs";
+import Form from "./containers/Form";
+import Gifs from "./containers/Gifs";
 
 const App = () => {
   return (
